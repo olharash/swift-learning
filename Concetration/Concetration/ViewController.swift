@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
-    var emojiChoices:Array <String> = ["🎃", "👻", "🐶", "🐱", "🦁", "🦊", "🐳","🐬"]
+    var animalChoices:Array <String> = ["🦋", "🐯", "🐶", "🐱", "🦁", "🦊", "🐳","🐬"]
     var emoji = [Int: String]()
     
     @IBAction func touchCard(_ sender: UIButton) {
@@ -49,9 +49,9 @@ class ViewController: UIViewController {
     }
     
     func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count>0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+        if emoji[card.identifier] == nil, animalChoices.count>0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(animalChoices.count)))
+            emoji[card.identifier] = animalChoices.remove(at: randomIndex)
         }
         return  emoji[card.identifier] ?? "?"
     }
